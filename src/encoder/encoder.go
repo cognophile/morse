@@ -6,7 +6,7 @@ import (
 	"cognophile.com/morse/dictionary"
 )
 
-func Encode(message string) string {
+func encode(message string) string {
 	encoded := ""
 	dict := dictionary.Get()
 	message = strings.ToUpper(message)
@@ -20,4 +20,9 @@ func Encode(message string) string {
 	}
 
 	return encoded
+}
+
+func Encode(message string) string {
+	encoded := encode(message)
+	return strings.TrimSuffix(encoded, " ")
 }

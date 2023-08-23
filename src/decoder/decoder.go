@@ -6,7 +6,7 @@ import (
 	"cognophile.com/morse/dictionary"
 )
 
-func Decode(message string) string {
+func decode(message string) string {
 	decoded := ""
 	dict := dictionary.Invert(dictionary.Get())
 
@@ -19,4 +19,9 @@ func Decode(message string) string {
 	}
 
 	return decoded
+}
+
+func Decode(message string) string {
+	decoded := decode(message)
+	return strings.TrimSuffix(decoded, " ")
 }
